@@ -32,10 +32,10 @@
     "autoload": {
         "psr-4": {
             "BardoQi\\BigMath\\": "src/",
-            "files":[
-                "bardoqi/bigmath/src/funcBInt.php",
-                "bardoqi/bigmath/src/funcBDec.php"
-            ]
-        }
+        },
+        "files":[
+            "bardoqi/bigmath/src/funcBInt.php",
+            "bardoqi/bigmath/src/funcBDec.php"
+        ]
     }
 }
