@@ -33,7 +33,7 @@ Now you could coding in most easy way with the BigMath!
 Via Composer
 
 ``` bash
-$ composer require bardoqi/bigmath
+$ composer require bardoqi/bigmath：dev-master
 ```
 
 ## Usage
