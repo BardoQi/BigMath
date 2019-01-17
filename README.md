@@ -209,11 +209,17 @@ $ composer test
 ## Road Map
 
 Add: '<<' and '>>' Operator to class BigInteger
+  
 Add: '~' Operator to class BigInteger 
+  
 Add: trigonometric functions such as sin cos etc to class BigDecimal
+  
 Add: inverse trigonometric function such as asin acos etc to class BigDecimal
+  
 Add: hyperbolic trigonometric functions such as sinh cosh etc to class BigDecimal
+  
 Add: high precision math constant such as e and pi.
+  
 Add: rational number class
 
 ## Contributing
