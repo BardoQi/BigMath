@@ -11,7 +11,7 @@
         "math",
         "php7"
     ],
-    "homepage": "https://github.com/bardoqi/bigmath",
+    "homepage": "https://github.com/BardoQi/BigMath",
     "require": {
         "php": "~7.0",
         "ext-gmp": "*"
@@ -31,17 +31,7 @@
     "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
-            "bardoqi/bigmath/": "src",
-            "files":[
-                "bardoqi/bigmath/src/funcBInt.php",
-                "bardoqi/bigmath/src/funcBDec.php"
-            ]
-
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "bardoqi/bigmath/tests/": "tests",
+            "BardoQi\\BigMath\\": "src/",
             "files":[
                 "bardoqi/bigmath/src/funcBInt.php",
                 "bardoqi/bigmath/src/funcBDec.php"
