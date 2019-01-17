@@ -28,7 +28,7 @@
             "role": "Developer"
         }
     ],
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
             "bardoqi/bigmath/": "src",
@@ -47,5 +47,5 @@
                 "bardoqi/bigmath/src/funcBDec.php"
             ]
         }
-    },
+    }
 }
