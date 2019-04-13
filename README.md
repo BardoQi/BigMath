@@ -239,12 +239,12 @@ If you discover any security related issues, please create an issue in the issue
    
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
     
-[ico-version]: https://img.shields.io/packagist/v/phpmath/biginteger.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/bardoqi/bigmath.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/phpmath/biginteger/master.svg?style=flat-square
-[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/phpmath/biginteger.svg?style=flat-square
-[ico-code-quality]: https://img.shields.io/scrutinizer/g/phpmath/biginteger.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/phpmath/biginteger.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/bardoqi/bigmath/master.svg?style=flat-square
+[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/bardoqi/bigmath.svg?style=flat-square
+[ico-code-quality]: https://img.shields.io/scrutinizer/g/bardoqi/bigmath.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/bardoqi/bigmath.svg?style=flat-square
 
 [link-packagist]: https://packagist.org/packages/bardoqi/bigmath
 [link-travis]: https://travis-ci.org/bardoqi/bigmath
@@ -254,3 +254,4 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [link-author]: https://github.com/bardoqi
 [link-contributors]: ../../contributors
 [link-pecl-php-operator]:https://github.com/php/pecl-php-operator
+
