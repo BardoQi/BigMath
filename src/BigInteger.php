@@ -35,7 +35,7 @@ class BigInteger
     /**
      * Initializes a new instance of this class.
      *
-     * @param string $value, The value to set.
+     * @param GMP $value, The value to set.
      */
     public function __construct(GMP $value)
     {
@@ -47,7 +47,7 @@ class BigInteger
      *
      * @return string
      */
-    public function __toString(): string
+    public function __toString()
     {
         return $this->toString();
     }
@@ -81,7 +81,7 @@ class BigInteger
      * @return GMP
      * @throws InvalidArgumentException Thrown when the value is invalid.
      */
-    public static function initValue(string $value): GMP
+    public static function initValue($value): GMP
     {
         $result = @gmp_init($value);
 
@@ -134,7 +134,7 @@ class BigInteger
      *        Index 0 represents the least significant bit.
      * @return bool
      */
-    public function clearBit(int $index): bool
+    public function clearBit($index)
     {
         if ($index>=0){
             gmp_clrbit($this->value,$index);
@@ -150,7 +150,7 @@ class BigInteger
      * @param BigInteger $b The value to compare.
      * @return int  Returns -1 is the number is less than this number. 0 if equal and 1 when greater.
      */
-    public function compareTo(BigInteger $b): int
+    public function compareTo(BigInteger $b)
     {
         return $this->cmp($b);
     }
@@ -161,7 +161,7 @@ class BigInteger
      * @param BigInteger $b The value to compare.
      * @return int  Returns -1 is the number is less than this number. 0 if equal and 1 when greater.
      */
-    public function cmp(BigInteger $b): int
+    public function cmp(BigInteger $b)
     {
         $result = gmp_cmp($this->value, $b->value);
 
@@ -244,7 +244,7 @@ class BigInteger
      * @param BigInteger $b The value to compare.
      * @return bool.
      */
-    public function equals(BigInteger $b): bool
+    public function equals(BigInteger $b)
     {
         return $this->eq($b);
     }
@@ -255,7 +255,7 @@ class BigInteger
      * @param BigInteger $b The value to compare.
      * @return bool.
      */
-    public function eq(BigInteger $b): bool
+    public function eq(BigInteger $b)
     {
         $result = $this->cmp($b);
         return ($result == 0);
@@ -267,7 +267,7 @@ class BigInteger
      * @param BigInteger $b The value to compare.
      * @return bool.
      */
-    public function ne(BigInteger $b): bool
+    public function ne(BigInteger $b)
     {
         $result = $this->cmp($b);
         return ($result != 0);
@@ -279,7 +279,7 @@ class BigInteger
      * @param BigInteger $b The value to compare.
      * @return bool.
      */
-    public function notEquals(BigInteger $b): bool
+    public function notEquals(BigInteger $b)
     {
         return $this->ne($b);
     }
@@ -289,7 +289,7 @@ class BigInteger
      *
      * @return bool
      */
-    public function even(): bool
+    public function even()
     {
         return (!$this->testbit(0));
     }
@@ -324,7 +324,7 @@ class BigInteger
      *
      * @return string
      */
-    public function getValue(): string
+    public function getValue()
     {
         return gmp_strval($this->value);
     }
@@ -335,7 +335,7 @@ class BigInteger
      * @param BigInteger $b The value to check with.
      * @return bool
      */
-    public function greaterThan(BigInteger $b): bool
+    public function greaterThan(BigInteger $b)
     {
         return $this->gt($b);
     }
@@ -346,7 +346,7 @@ class BigInteger
      * @param BigInteger $b The value to check with.
      * @return bool
      */
-    public function gt(BigInteger $b): bool
+    public function gt(BigInteger $b)
     {
         $result = $this->cmp($b);
 
@@ -359,7 +359,7 @@ class BigInteger
      * @param BigInteger $b The value to check with.
      * @return bool
      */
-    public function greaterThanOrEqualsTo(BigInteger $b): bool
+    public function greaterThanOrEqualsTo(BigInteger $b)
     {
         return $this->gte($b);
     }
@@ -370,7 +370,7 @@ class BigInteger
      * @param BigInteger $b The value to check with.
      * @return bool
      */
-    public function gte(BigInteger $b): bool
+    public function gte(BigInteger $b)
     {
         return ($this->cmp($b)>=0);
     }
@@ -381,7 +381,7 @@ class BigInteger
      * @param BigInteger $b  It should be positive.
      * @return int.
      */
-    public function hamDist(BigInteger $b): int
+    public function hamDist(BigInteger $b)
     {
         return gmp_hamdist($this->value,$b->value);
     }
@@ -393,7 +393,7 @@ class BigInteger
      * @param BigInteger $b
      * @return mixed  A GMP number on success or FALSE if an inverse does not exist.
      */
-    public function invert(BigInteger $b): mixed
+    public function invert(BigInteger $b)
     {
         $result = gmp_invert($this->value, $b->value);
         if (false===$result){
@@ -408,7 +408,7 @@ class BigInteger
      *
      * @return bool
      */
-    public function isOne():bool
+    public function isOne()
     {
         return ($this->cmp(BInt('1'))==0);
     }
@@ -419,18 +419,18 @@ class BigInteger
      *
      * @return bool
      */
-    public function isZero():bool
+    public function isZero()
     {
         return ($this->cmp(BInt('0'))==0);
     }
 
     /**
-     * Checks if the big integr is the prime number.
+     * Checks if the big integer is the prime number.
      *
      * @param float $probabilityFactor A normalized factor between 0 and 1 used for checking the probability.
      * @return bool Returns true if the number is a prime number false if not.
      */
-    public function isPrime(float $probabilityFactor = 1.0): bool
+    public function isPrime($probabilityFactor = 1.0)
     {
         $reps = (int)floor(($probabilityFactor * 5.0) + 5.0);
 
@@ -447,7 +447,7 @@ class BigInteger
      * @param BigInteger $b Should be odd and must be positive.
      * @return int
      */
-    public function jacobi(BigInteger $b): int
+    public function jacobi(BigInteger $b)
     {
         return gmp_jacobi($this->value, $b->value);
     }
@@ -458,7 +458,7 @@ class BigInteger
      * @param BigInteger $b
      * @return mixed
      */
-    public function legendre(BigInteger $b): mixed
+    public function legendre(BigInteger $b)
     {
         if ($this->lessThan(BInt('1')))
                 return false;
@@ -474,7 +474,7 @@ class BigInteger
      * @param BigInteger $b The value to check with.
      * @return bool
      */
-    public function lessThan(BigInteger $b): bool
+    public function lessThan(BigInteger $b)
     {
         return $this->lt($b);
     }
@@ -485,7 +485,7 @@ class BigInteger
      * @param BigInteger $b The value to check with.
      * @return bool
      */
-    public function lt(BigInteger $b): bool
+    public function lt(BigInteger $b)
     {
         $result = $this->cmp($b);
         return ($result==-1);
@@ -497,7 +497,7 @@ class BigInteger
      * @param BigInteger $b The value to check with.
      * @return bool
      */
-    public function lessThanOrEqualsTo(BigInteger $b): bool
+    public function lessThanOrEqualsTo(BigInteger $b)
     {
         return $this->lte($b);
     }
@@ -508,7 +508,7 @@ class BigInteger
      * @param BigInteger $b The value to check with.
      * @return bool
      */
-    public function lte(BigInteger $b): bool
+    public function lte(BigInteger $b)
     {
         return  ($this->cmp($b)<=0);
     }
@@ -569,7 +569,7 @@ class BigInteger
      * @param mixed $b
      * @return BigInteger
      */
-    public function decrement($b=1): bool
+    public function decrement($b=1): BigInteger
     {
         return $this->minus($b);
 
@@ -660,13 +660,8 @@ class BigInteger
      */
     public static function of($value): BigInteger
     {
-        if (is_numeric($value)){
-            $value = self::initValue(strval($value));
-        }
-        if(is_string($value)){
-            $value = self::initValue($value);
-        }
-        return new BigInteger ($value);
+        $value = self::initValue(strval($value));
+        return new BigInteger($value);
     }
 
     /**
@@ -674,7 +669,7 @@ class BigInteger
      *
      * @return bool
      */
-    public function odd(): bool
+    public function odd()
     {
         return $this->testbit(0);
     }
@@ -696,7 +691,7 @@ class BigInteger
      *
      * @return bool
      */
-    public function perfectSquare(): bool
+    public function perfectSquare()
     {
         return gmp_perfect_square($this->value);
     }
@@ -724,7 +719,7 @@ class BigInteger
      * @param mixed $b
      * @return BigInteger
      */
-    public function increment($b=1): bool
+    public function increment($b=1):BigInteger
     {
         return $this->plus($b);
 
@@ -735,7 +730,7 @@ class BigInteger
      *
      * @return int
      */
-    public function popCount(): int
+    public function popCount()
     {
         return gmp_popcount($this->value);
 
@@ -744,10 +739,10 @@ class BigInteger
     /**
      * Performs a power operation with the given number.
      *
-     * @param int $value, The value to perform a power operation with.
+     * @param int $exp, The value to perform a power operation with.
      * @return BigInteger
      */
-    public function power(int $exp): BigInteger
+    public function power($exp): BigInteger
     {
         return $this->pow($exp);
     }
@@ -755,10 +750,10 @@ class BigInteger
     /**
      * Performs a power operation with the given number.
      *
-     * @param int $value, The value to perform a power operation with.
+     * @param int $exp, The value to perform a power operation with.
      * @return BigInteger
      */
-    public function pow(int $exp): BigInteger
+    public function pow($exp): BigInteger
     {
         $result = gmp_pow($this->value, $exp);
 
@@ -771,7 +766,7 @@ class BigInteger
      * @param int $bit, The number of bits.
      * @return BigInteger
      */
-    public function randomBits(int $bit): BigInteger
+    public function randomBits($bit): BigInteger
     {
         if (function_exists('gmp_random_bits')){
             $result = gmp_random_bits($bit);
@@ -803,7 +798,7 @@ class BigInteger
      * @param BigInteger $seed, The seed to be set for the random(), randomBits(), and randomRange() functions.
      * @return void
      */
-    public function randomSeed(BigInteger $seed): void
+    public function randomSeed(BigInteger $seed)
     {
         gmp_random_seed($seed->value);
 
@@ -815,7 +810,7 @@ class BigInteger
      * @param int $nth  The positive root to take
      * @return BigInteger
      */
-    public function root(int $nth): BigInteger
+    public function root($nth): BigInteger
     {
         $result =  gmp_root($this->value,$nth);
         return self::of($result);
@@ -829,7 +824,7 @@ class BigInteger
      * @param BigInteger $remainder
      * @return BigInteger
      */
-    public function rootRem(int $nth, BigInteger &$remainder ): BigInteger
+    public function rootRem($nth, BigInteger &$remainder ): BigInteger
     {
         $result =  gmp_rootrem($this->value,$nth);
         $remainder = self::of($result[1]);
@@ -843,7 +838,7 @@ class BigInteger
      * @param int $index
      * @return int
      */
-    public function scan0(int $index): int
+    public function scan0($index)
     {
         if ($index < 0){
             Throw new InvalidArgumentException('The value of index need not less than 0');
@@ -857,7 +852,7 @@ class BigInteger
      * @param int $index
      * @return int
      */
-    public function scan1(int $index): int
+    public function scan1($index)
     {
         if ($index < 0){
             Throw new InvalidArgumentException('The value of index need not less than 0');
@@ -872,7 +867,7 @@ class BigInteger
      * @param bool|TRUE $bit_on True to set the bit (set it to 1/on); false to clear the bit (set it to 0/off).
      * @return BigInteger
      */
-    public function setBit(int $index, bool $bit_on = TRUE): BigInteger
+    public function setBit($index, $bit_on = TRUE): BigInteger
     {
         if ($index < 0){
             Throw new InvalidArgumentException('The value of index need not less than 0');
@@ -887,7 +882,7 @@ class BigInteger
      * @param string $value The value to set.
      * @return BigInteger
      */
-    public function setValue(string $value): BigInteger
+    public function setValue($value): BigInteger
     {
         $this->value = self::initValue($value);
 
@@ -899,7 +894,7 @@ class BigInteger
      *
      * @return int
      */
-    public function sign(): int
+    public function sign()
     {
         return gmp_sign($this->value);
     }
@@ -967,7 +962,7 @@ class BigInteger
      * @param int $index
      * @return bool
      */
-    public function testBit(int $index): bool
+    public function testBit($index)
     {
         if ($index < 0){
             Throw new InvalidArgumentException('The value of index need not less than 0');
@@ -980,7 +975,7 @@ class BigInteger
      *
      * @return string
      */
-    public function toString(): string
+    public function toString()
     {
         return $this->getValue();
     }
@@ -1003,7 +998,7 @@ class BigInteger
      * @param mixed $b
      * @return string
      */
-    public function concat ($b): string{
+    public function concat ($b){
         if ($b instanceof BigInteger){
             $b = $b->toString();
         }
@@ -1015,7 +1010,7 @@ class BigInteger
      * @param $b
      * @return bool
      */
-    public function identical($b):bool{
+    public function identical($b){
         return ($this === $b);
     }
 
@@ -1024,7 +1019,7 @@ class BigInteger
      * @param $b
      * @return bool
      */
-    public function notIdentical($b):bool{
+    public function notIdentical($b){
         return ($this !== $b);
     }
 
@@ -1337,10 +1332,7 @@ class BigInteger
      * @return BigInteger
      */
     public function __assign_pow($arg){
-        if(is_numeric($arg)){
-            $arg = BigInteger::of($arg);
-        }
-        $this->value = gmp_pow($this->value, $arg->value);
+        $this->value = gmp_pow($this->value, $arg);
         return $this;
     }
 

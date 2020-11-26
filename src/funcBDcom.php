@@ -11,33 +11,33 @@
 declare(strict_types=1);
 
 namespace BardoQi\BigMath;
-
 use BardoQi\BigMath\Exceptions\DivisionByZeroException;
-use BardoQi\BigMath\BigInteger;
+use BardoQi\BigMath\BigDComplex;
 
 /**
  * global function
  */
-if (!function_exists('BInt')){
+if (!function_exists('BDCom')){
     /**
-     * @param string $value
-     * @return BigInteger
+     * @param string $r
+     * @param string $i
+     * @return \BardoQi\BigMath\BigDComplex
      */
-    function BInt($value = '0'):BigInteger
+    function BDCom($r ='0', $i='0' ):BigDComplex
     {
-        return BigInteger::of($value);
+        return BigDComplex::of($r,$i);
     }
 }
 
 /**
  * global function
  */
-if (!function_exists('_bi')){
+if (!function_exists('_bdc')){
     /**
-     * @param BigInteger $value
-     * @return BigInteger
+     * @param BigDComplex $value
+     * @return BigDComplex
      */
-    function _bi(BigInteger $value):BigInteger
+    function _bdc(BigDComplex $value):BigDComplex
     {
         return $value;
     }

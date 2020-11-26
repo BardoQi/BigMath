@@ -1,6 +1,7 @@
 <?php
 namespace BardoQi\BigMath;
-use BardoQi\BigMath\BigInteger;
+
+//use BardoQi\BigMath\BigInteger;
 /**
  * Do not forget to import the global function!
  */
@@ -10,15 +11,15 @@ use function BardoQi\BigMath\BInt as BInt;
 /**
  * Retrieve the data array of parabola curve from the paramaters given.
  *
- * @param string $a
- * @param string $b
- * @param string $c
- * @param string $xStart
- * @param string $xMax
- * @param string $step
+ * @param \string $a
+ * @param \string $b
+ * @param \string $c
+ * @param \string $xStart
+ * @param \string $xMax
+ * @param \string $step
  * @return mixed
  */
-function getParabolaData(string $a,string $b,string $c, string $xStart,  string $xMax,  string $step):array
+function getParabolaData(\string $a,\string $b,\string $c, \string $xStart,  \string $xMax,  \string $step):array
 {
     $data=[];
 

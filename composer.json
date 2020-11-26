@@ -7,6 +7,7 @@
         "bigmath",
         "biginteger",
         "bigdecimal",
+        "bigcomplex",
         "integer",
         "math",
         "php7"
@@ -34,8 +35,10 @@
             "BardoQi\\BigMath\\": "src/"
         },
         "files":[
-            "bardoqi/bigmath/src/funcBInt.php",
-            "bardoqi/bigmath/src/funcBDec.php"
+            "/src/funcBInt.php",
+            "/src/funcBDec.php",
+            "/src/funcBICom.php",
+            "/src/funcBDCom.php"
         ]
     }
 }

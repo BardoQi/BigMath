@@ -2,7 +2,7 @@
 
 namespace BardoQi\BigMath\Exceptions;
 
-use BardoQi\BigMath\Exceptions\BigMathException;
+//use BardoQi\BigMath\Exceptions\BigMathException;
 
 /**
  * Exception thrown when a division by zero occurs.
@@ -17,6 +17,14 @@ class DivisionByZeroException extends BigMathException
     public static function divisionByZero() : DivisionByZeroException
     {
         return new self('Division by zero.');
+    }
+
+    /**
+     * @return DivisionByZeroException
+     */
+    public static function invertingZero() : DivisionByZeroException
+    {
+        return new self('Division by zero while inverting zero.');
     }
 
 

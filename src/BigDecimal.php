@@ -31,7 +31,7 @@ class BigDecimal
      *
      * @param string $value, The value to set.
      */
-    public function __construct(string $value)
+    public function __construct($value)
     {
         $this->value = $value;
     }
@@ -41,7 +41,7 @@ class BigDecimal
      *
      * @return string
      */
-    public function __toString(): string
+    public function __toString()
     {
         return $this->toString();
     }
@@ -98,7 +98,7 @@ class BigDecimal
      * @param BigDecimal $b The value to compare.
      * @return int Returns -1 is the number is less than this number. 0 if equal and 1 when greater.
      */
-    public function compareTo(BigDecimal $b): int
+    public function compareTo(BigDecimal $b)
     {
         return $this->cmp($b);
     }
@@ -109,7 +109,7 @@ class BigDecimal
      * @param BigDecimal $b The value to compare.
      * @return int Returns -1 is the number is less than this number. 0 if equal and 1 when greater.
      */
-    public function cmp(BigDecimal $b): int
+    public function cmp(BigDecimal $b)
     {
         return bccomp($this->value, $b->value);
     }
@@ -205,7 +205,7 @@ class BigDecimal
      * @param BigDecimal $b The value to compare.
      * @return bool
      */
-    public function equals(BigDecimal $b): bool
+    public function equals(BigDecimal $b) 
     {
         return $this->eq($b);
     }
@@ -216,7 +216,7 @@ class BigDecimal
      * @param BigDecimal $b The value to compare.
      * @return bool
      */
-    public function eq(BigDecimal $b): bool
+    public function eq(BigDecimal $b)
     {
         $result = $this->cmp($b);
         return ($result == 0);
@@ -228,7 +228,7 @@ class BigDecimal
      * @param BigDecimal $b The value to compare.
      * @return bool
      */
-    public function ne(BigDecimal $b): bool
+    public function ne(BigDecimal $b)
     {
         $result = $this->cmp($b);
         return ($result != 0);
@@ -240,7 +240,7 @@ class BigDecimal
      * @param BigDecimal $b The value to compare.
      * @return bool
      */
-    public function notEquals(BigDecimal $b): bool
+    public function notEquals(BigDecimal $b)
     {
         return $this->ne($b);
     }
@@ -250,7 +250,7 @@ class BigDecimal
      *
      * @return bool
      */
-    public function even(): bool
+    public function even()
     {
         return ($this->mod(BDec('2'))==0);
     }
@@ -260,7 +260,7 @@ class BigDecimal
      *
      * @return string
      */
-    public function getValue(): string
+    public function getValue()
     {
         return $this->value;
     }
@@ -271,7 +271,7 @@ class BigDecimal
      * @param BigDecimal $b The value to check with.
      * @return bool
      */
-    public function greaterThan(BigDecimal $b): bool
+    public function greaterThan(BigDecimal $b)
     {
 
         return $this->gt($b);
@@ -283,7 +283,7 @@ class BigDecimal
      * @param BigDecimal $b The value to check with.
      * @return bool
      */
-    public function gt(BigDecimal $b): bool
+    public function gt(BigDecimal $b)
     {
         $result = $this->cmp($b);
 
@@ -296,7 +296,7 @@ class BigDecimal
      * @param BigDecimal $b The value to check with.
      * @return bool
      */
-    public function greaterThanOrEqualsTo(BigDecimal $b): bool
+    public function greaterThanOrEqualsTo(BigDecimal $b)
     {
 
         return $this->gte($b);
@@ -308,7 +308,7 @@ class BigDecimal
      * @param BigDecimal $b The value to check with.
      * @return bool
      */
-    public function gte(BigDecimal $b): bool
+    public function gte(BigDecimal $b)
     {
         return ($this->cmp($b)>=0);
     }
@@ -319,7 +319,7 @@ class BigDecimal
      *
      * @return bool
      */
-    public function isOne():bool
+    public function isOne()
     {
         return ($this->cmp(BDec('1'))==0);
     }
@@ -330,7 +330,7 @@ class BigDecimal
      *
      * @return bool
      */
-    public function isZero():bool
+    public function isZero()
     {
         return ($this->cmp(BDec('0'))==0);
     }
@@ -341,7 +341,7 @@ class BigDecimal
      * @param BigDecimal $b The value to check with.
      * @return bool
      */
-    public function lessThan(BigDecimal $b): bool
+    public function lessThan(BigDecimal $b)
     {
         return   $this->lt($b);
     }
@@ -352,7 +352,7 @@ class BigDecimal
      * @param BigDecimal $b The value to check with.
      * @return bool
      */
-    public function lt(BigDecimal $b): bool
+    public function lt(BigDecimal $b)
     {
         $result = $this->cmp($b);
 
@@ -367,7 +367,7 @@ class BigDecimal
      * @param BigDecimal $b The value to check with.
      * @return bool
      */
-    public function lessThanOrEqualsTo(BigDecimal $b): bool
+    public function lessThanOrEqualsTo(BigDecimal $b)
     {
         return  $this->lte($b);
     }
@@ -378,7 +378,7 @@ class BigDecimal
      * @param BigDecimal $b The value to check with.
      * @return bool
      */
-    public function lte(BigDecimal $b): bool
+    public function lte(BigDecimal $b)
     {
         return  ($this->cmp($b)<=0);
 
@@ -501,7 +501,7 @@ class BigDecimal
      *
      * @return bool
      */
-    public function odd(): bool
+    public function odd()
     {
         return ($this->mod(BDec('2'))==1);
     }
@@ -511,7 +511,7 @@ class BigDecimal
      * @param string $value
      * @return BigDecimal
      */
-    public static function of(string $value): BigDecimal
+    public static function of( $value): BigDecimal
     {
         return new BigDecimal ($value);
     }
@@ -551,7 +551,7 @@ class BigDecimal
      * @param int $scale
      * @return BigDecimal
      */
-    public function power(BigDecimal $exp,int $scale = 2 ): BigDecimal
+    public function power(BigDecimal $exp,$scale = 2 ): BigDecimal
     {
         return $this->pow($exp,$scale);
     }
@@ -563,7 +563,7 @@ class BigDecimal
      * @param int $scale
      * @return BigDecimal
      */
-    public function pow(BigDecimal $exp,int $scale = 2 ): BigDecimal
+    public function pow(BigDecimal $exp,$scale = 2 ): BigDecimal
     {
         $result = bcpow($this->value, $exp->value, $scale);
 
@@ -578,11 +578,48 @@ class BigDecimal
      * @param int $scale
      * @return BigDecimal
      */
-    public function powMod(BigDecimal $exp,BigDecimal $mdl, int $scale = 2  ): BigDecimal
+    public function powMod(BigDecimal $exp,BigDecimal $mdl, $scale = 2  ): BigDecimal
     {
         $result = bcpowmod($this->value, $exp->value, $mdl->value, $scale);
 
         return self::of($result);
+    }
+
+    /**
+     * Takes the nth root and returns the BigDecimal component of the result.
+     *
+     * @param BigDecimal $base
+     * @param int $nth
+     * @param int $scale
+     * @return BigDecimal
+     */
+    function root(BigDecimal $base, $nth, $scale = 100):BigDecimal {
+        if ($nth <  1) return self::of(0);
+        if ($base->lte(self::of(0))) return self::of(0);
+        if ($base->lte(self::of(2))) return self::of(1);
+        $ret_val   = 0;
+        $guess     = bcdiv($base->value, 2, $scale);
+        $continue  = true;
+        $step = bcdiv(bcsub($base->value, $guess, $scale), 2, $scale);
+        while ($continue) {
+            $test = bccomp($base->value, bcpow($guess, $nth, $scale), $scale);
+            if (0 == $test) {
+                $continue = false;
+                $ret_val   = $guess;
+            }
+            else if (0 < $test) {
+                $step  = bcdiv($step, 2, $scale);
+                $guess = bcadd($guess, $step, $scale);
+            }
+            else if (0 > $test) {
+                $guess = bcsub($guess, $step, $scale);
+            }
+            if (bccomp($step, 0, $scale) == 0) {
+                $continue = false;
+                $ret_val  = $guess;
+            }
+        }
+        return self::of($ret_val);
     }
 
     /**
@@ -591,7 +628,7 @@ class BigDecimal
      * @param int $scale
      * @return bool
      */
-    public function scale(int $scale):bool
+    public function scale($scale)
     {
         return bcscale($scale);
     }
@@ -602,7 +639,7 @@ class BigDecimal
      * @param string $value The value to set.
      * @return BigDecimal
      */
-    public function setValue(string $value): BigDecimal
+    public function setValue( $value): BigDecimal
     {
         $this->value = $value;
         return $this;
@@ -613,7 +650,7 @@ class BigDecimal
      *
      * @return int
      */
-    public function sign(): int
+    public function sign()
     {
         return $this->compareTo(BDec('0'));
     }
@@ -668,7 +705,7 @@ class BigDecimal
      *
      * @return string
      */
-    public function toString(): string
+    public function toString()
     {
         return $this->getValue();
     }
@@ -679,7 +716,7 @@ class BigDecimal
      * @param mixed $b
      * @return string
      */
-    public function concat (BigDecimal $b): string{
+    public function concat (BigDecimal $b){
         if ($b instanceof BigDecimal){
             $b = $b->toString();
         }
@@ -691,7 +728,7 @@ class BigDecimal
      * @param BigDecimal $b
      * @return bool
      */
-    public function identical(BigDecimal $b):bool{
+    public function identical(BigDecimal $b){
         return ($this === $b);
     }
 
@@ -700,7 +737,7 @@ class BigDecimal
      * @param BigDecimal $b
      * @return bool
      */
-    public function notIdentical(BigDecimal $b):bool{
+    public function notIdentical(BigDecimal $b){
         return ($this !== $b);
     }
 
